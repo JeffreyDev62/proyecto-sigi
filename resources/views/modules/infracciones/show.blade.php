@@ -15,7 +15,7 @@
                 <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Detalles de Infracción</h5>
+                        <h5 class="card-title">Detalles de la infracción</h5>
                         <form class="row g-3" action="#" method="POST">
                             @csrf
                             <div class="col-md-12">

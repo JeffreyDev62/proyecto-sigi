@@ -219,7 +219,7 @@
 
                                 <div class="mb-3 mt-4">
                                     <label for="evidencias" class="form-label">Evidencias fotográficas</label>
-                                    <input class="form-control" type="file" id="evidencias" multiple disabled>
+                                    <input class="form-control" type="file" id="evidencias" multiple>
                                 </div>
 
                                 <hr>
