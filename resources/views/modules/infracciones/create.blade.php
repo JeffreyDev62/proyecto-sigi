@@ -32,9 +32,14 @@
                                 <h4 style="margin-top: 2.5rem; color: #003772; font-weight: 600;">1. Datos del ciudadano</h4>
 
                                 <div class="col-md-12">
-                                    <div class="form-floating">
+                                    <div class="form-floating input-group">
+                                        <select name="nacionalidad" class="form-select" style="max-width:70px;">
+                                            <option value="#">V</option>
+                                            <option value="#">E</option>
+                                            <option value="#">J</option>
+                                        </select>
                                         <input type="number" class="form-control" name="cedula" id="cedula" placeholder="Cédula de identidad" required oninput="if(this.value.length>8)this.value=this.value.slice(0,8)">
-                                        <label for="cedula">Cédula de identidad</label>
+                                        <label style="margin-left: 4.3rem" for="cedula">Cédula de identidad</label>
                                     </div>
                                 </div>
 
