@@ -20,43 +20,47 @@
                     <h5 class="card-title">Consulta de infracciones</h5>
 
                     <!-- Table with stripped rows -->
-                    <a href="{{ route('infracciones.create') }}" class="btn btn-primary">
+                    <a href="{{ route('infracciones.create') }}" class="btn" style="background-color: #4154f1; color: white;">
                         <i class=" ri-add-fill"></i> Registrar Infracción
                     </a>
                     <hr>
                     <table class="table table-bordered datatable">
                         <thead>
                         <tr>
+                            <th>Cédula</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
-                            <th>Cédula</th>
                             <th>Placa de Vehículo</th>
                             <th>Tipo de infracción</th>
-                            <th>Estado</th>
+                            <th>Fecha y hora</th>
                             <th>Acciones</th>
                         </tr>
                         </thead>
                         <tbody>
                             @foreach ($items as $item)
                                 <tr>
+                                    <td>V-{{ $item->cedula }}</td>
                                     <td>{{ $item->nombres }}</td>
                                     <td>{{ $item->apellidos }}</td>
-                                    <td>{{ $item->cedula }}</td>
                                     <td>{{ $item->placa_vehiculo }}</td>
                                     <td>{{ $item->tipo_infraccion }}</td>
-                                    @if ($item->estado === 'Retenido')
+                                    <td>{{ $item->created_at }}</td>
+                                    {{-- @if ($item->estado === 'Retenido')
                                         <td class="text-center"><span class="badge bg-warning">{{ $item->estado }}</span></td>
                                     @elseif ($item->estado === 'Liberado')
                                         <td class="text-center"><span class="badge bg-success">{{ $item->estado }}</span></td>
                                     @else
                                         <td class="text-center"><span class="badge bg-danger">{{ $item->estado }}</span></td>
-                                    @endif
+                                    @endif --}}
                                     <td class="text-center">
-                                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                            <a href="{{ route('infracciones.edit', $item->id) }}" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Consultar o editar">
+                                        <div class="btn-group" role="group">
+                                            <a href="{{ route('infracciones.show', $item->id) }}" class="btn btn-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Consultar">
+                                                <i class=" ri-eye-line"></i>
+                                            </a>
+                                            <a href="{{ route('infracciones.edit', $item->id) }}" class="btn btn-warning" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
                                                 <i class=" ri-edit-2-fill"></i>
                                             </a>
-                                            <a href="{{ route('infracciones.show', $item->id) }}" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                                            <a style="pointer-events: none;" href="{{ route('infracciones.show', $item->id) }}" class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
                                                 <i class="ri-delete-bin-5-fill"></i>
                                             </a>
                                         </div>

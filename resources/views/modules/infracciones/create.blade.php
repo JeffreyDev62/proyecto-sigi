@@ -219,7 +219,7 @@
 
                                 <hr>
                                 <div class="col-6">
-                                    <button type="button" class="btn btn-secondary" onclick="mostrarFase(2)">Anterior <i class="ri-arrow-go-back-line"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="mostrarFase(2)">Atrás <i class="ri-arrow-go-back-line"></i></button>
                                     <button style="pointer-events: none;" type="submit" class="btn btn-success">Guardar <i class="ri-save-2-fill"></i></button>
                                 </div>
                             </section>
@@ -236,7 +236,7 @@
                     </div>
                 </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="card">
                         <img src="{{ asset('recursos/assets/img/cr6.jpeg') }}" class="card-img-top" alt="...">
                         <div class="card-body">

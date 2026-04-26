@@ -146,7 +146,7 @@
                             <hr>
                             
                             <div class="col-6">
-                                <button type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+                                <button style="pointer-events: none;" type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                                 <a href="{{ route('infracciones.index') }}" class="btn btn-secondary mt-3"><i class="fa-solid fa-rotate-left"></i> Cancelar</a>
                             </div>
                         </form>

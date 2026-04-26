@@ -54,7 +54,7 @@ class Infracciones extends Controller
      */
     public function show(string $id)
     {
-        $titulo = 'Confirmar eliminación';
+        $titulo = 'Consultar infracción';
         $item = Infraccion::findOrFail($id);
         return view('modules.infracciones.show', compact('titulo', 'item'));
     }
@@ -95,9 +95,9 @@ class Infracciones extends Controller
      */
     public function destroy(string $id)
     {
-        $item = Infraccion::findorFail($id);
-        $item->delete();
+        // $item = Infraccion::findorFail($id);
+        // $item->delete();
 
-        return to_route('infracciones.index')->with('delete', 'Infracción eliminada exitosamente.');
+        // return to_route('infracciones.index')->with('delete', 'Infracción eliminada exitosamente.');
     }
 }
