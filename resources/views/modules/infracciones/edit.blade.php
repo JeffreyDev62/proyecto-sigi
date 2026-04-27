@@ -16,7 +16,7 @@
             </div>
         @endif
         <div class="pagetitle">
-        <h1>Editar infracción</h1>
+        <h1>Editar</h1>
         </div><!-- Final page title -->
 
         {{-- Inicio de formulario de edición de  "infracciones" --}}
@@ -25,128 +25,118 @@
                 <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Datos del ciudadano</h5>
+                        <h5 class="card-title">Detalles de la infracción</h5>
                         <form class="row g-3" action="{{ route('infracciones.update', $item->id) }}" method="POST">
                             @csrf
                             @method('PUT')
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="nombres" id="nombres" placeholder="Nombres" value="{{ $item->nombres }}" required>
-                                    <label for="nombres">Nombres</label>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="apellidos" id="apellidos" placeholder="Apellidos" value="{{ $item->apellidos }}" required>
-                                    <label for="apellidos">Apellidos</label>
-                                </div>
-                            </div>
-
                             <div class="col-md-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="direccion" id="direccion" placeholder="Dirección" value="{{ $item->direccion }}" required>
-                                    <label for="direccion">Dirección</label>
+                                    <div class="form-floating">
+                                        <select class="form-select" name="tipo_infraccion" id="tipo_infraccion" required>
+                                            <option>Seleccione una opción</option>
+                                            <option value="#">Infracción 1</option>
+                                            <option selected value="#">Infracción 2</option>
+                                            <option value="#">Infracción 3</option>
+                                        </select>
+                                        <label for="tipo_infraccion">Tipo de infracción</label>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="col-md-4">
-                                <div class="form-floating">
-                                    <input type="number" class="form-control" name="cedula" id="cedula" placeholder="Cédula de identidad" value="{{ $item->cedula }}" required oninput="if(this.value.length>8)this.value=this.value.slice(0,8)">
-                                    <label for="cedula">Cédula de identidad</label>
+
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="ubicacion" id="ubicacion" required>
+                                            <option>Seleccione una opción</option>
+                                            <option value="#">Ubicación 1</option>
+                                            <option value="#">Ubicación 2</option>
+                                            <option selected value="#">Ubicación 3</option>
+                                        </select>
+                                        <label for="ubicacion">Ubicación</label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-4">
-                                <div class="form-floating">
-                                    <input type="number" class="form-control" name="numero" id="numero" placeholder="Número de teléfono" value="{{ $item->numero }}" required oninput="if(this.value.length>11)this.value=this.value.slice(0,11)">
-                                    <label for="numero">Número de teléfono</label>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="oficial" id="oficial" required>
+                                            <option>Seleccione una opción</option>
+                                            <option selected value="#">Oficial 1</option>
+                                            <option value="#">Oficial 2</option>
+                                            <option value="#">Oficial 3</option>
+                                        </select>
+                                        <label for="oficial">Oficial</label>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-4">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" name="placa_vehiculo" id="placa_vehiculo" placeholder="Placa del vehículo" value="{{ $item->placa_vehiculo }}" maxlength="9" required>
-                                    <label for="placa_vehiculo">Placa del vehículo</label>
+                                <div class="col-md-12">
+                                    <label class="mb-2" for="observaciones">Observaciones</label>
+                                    <textarea name="observaciones" id="observaciones" class="form-control" rows="4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras blandit est turpis, id luctus lorem sodales sit amet. Donec pulvinar sodales dapibus. Vestibulum nisl eros, vestibulum quis nulla et, blandit fringilla ligula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed turpis ipsum, tincidunt non varius in, suscipit non arcu. Suspendisse potenti. Nunc tristique, dolor in porta malesuada, magna justo faucibus orci, non imperdiet tortor neque eget leo. Fusce sit amet mauris tortor. Pellentesque sit amet ipsum ut augue efficitur maximus non eget elit. Duis malesuada massa in scelerisque suscipit. Phasellus id lacinia ligula, vel posuere enim. Nulla fermentum efficitur neque, vel ullamcorper leo imperdiet vel. Aliquam risus metus, aliquet vel risus dapibus, ultrices placerat eros. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse vitae sem quis dui posuere maximus vitae sit amet enim. Ut dapibus velit at mi accumsan fermentum.</textarea>
                                 </div>
-                            </div>
 
-                            <div class="col-md-12">
-                                <div class="form-floating">
-                                    <select class="form-select" name="tipo_infraccion" id="tipo_infraccion" required>
-                                        <option>Seleccione una opción</option>
-                                        <option value="Documentación vencida o inexistente" {{ $item->tipo_infraccion == 'Documentación vencida o inexistente' ? 'selected' : '' }}>Documentación vencida o inexistente</option>
-                                        <option value="Conducir bajo los efectos del alcohol o estupefacientes" {{ $item->tipo_infraccion == 'Conducir bajo los efectos del alcohol o estupefacientes' ? 'selected' : '' }}>Conducir bajo los efectos del alcohol o estupefacientes</option>
-                                        <option value="Exceso de velocidad" {{ $item->tipo_infraccion == 'Exceso de velocidad' ? 'selected' : '' }}>Exceso de velocidad</option>
-                                        <option value="No respetar señales de tránsito" {{ $item->tipo_infraccion == 'No respetar señales de tránsito' ? 'selected' : '' }}>No respetar señales de tránsito</option>
-                                        <option value="Uso indebido del teléfono móvil" {{ $item->tipo_infraccion == 'Uso indebido del teléfono móvil' ? 'selected' : '' }}>Uso indebido del teléfono móvil</option>
-                                        <option value="No usar cinturón de seguridad" {{ $item->tipo_infraccion == 'No usar cinturón de seguridad' ? 'selected' : '' }}>No usar cinturón de seguridad</option>
-                                        <option value="Maniobras prohibidas" {{ $item->tipo_infraccion == 'Maniobras prohibidas' ? 'selected' : '' }}>Maniobras prohibidas</option>
-                                </select>
-                                    <label for="tipo_infraccion">Tipo de infracción</label>
+                                <div class="col-md-12">
+                                    <h5 class="card-title">Documentación del ciudadano</h5>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <input hidden name="documentos[docSeguro]" value="0">
+                                            <input class="form-check-input me-1" type="checkbox" name="documentos[docSeguro]" value="1" id="docSeguro">
+                                            Seguro médico
+                                            
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input hidden name="documentos[docCerMed]" value="0">
+                                            <input class="form-check-input" type="checkbox" name="documentos[docCerMed]" value="1" id="docCerMed" checked>
+                                            Certificado médico
+
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input hidden name="documentos[docRCV]" value="0">
+                                            <input class="form-check-input" type="checkbox" name="documentos[docRCV]" value="1" id="docRCV">
+                                            Responsabilidad civil del vehículo
+                                            
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input hidden name="documentos[docCerOri]" value="0">
+                                            <input class="form-check-input" type="checkbox" name="documentos[docCerOri]" value="1" id="docCerOri">
+                                            Certificado de origen
+                                            
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input hidden name="documentos[docTitProp]" value="0">
+                                            <input class="form-check-input" type="checkbox" name="documentos[docTitProp]" value="1" id="docTitProp">
+                                            Título de propiedad
+                                            
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input hidden name="documentos[docCarneCir]" value="0">
+                                            <input class="form-check-input" type="checkbox" name="documentos[docCarneCir]" value="1" id="docCarneCir">
+                                            Carnet de circulación
+                                            
+                                        </li>
+                                        <li class="list-group-item">
+                                            <input hidden name="documentos[docLicencia]" value="0">
+                                            <input class="form-check-input" type="checkbox" name="documentos[docLicencia]" value="1" id="docLicencia" checked>
+                                            Licencia de conducir
+                                            
+                                        </li>
+                                    </ul>
                                 </div>
-                            </div>
 
-                            <div class="col-md-12">
-                                <div class="form-floating">
-                                    <select class="form-select" name="estado" id="estado" required>
-                                        <option value="Retenido" {{ $item->estado == 'Retenido' ? 'selected' : '' }}>Retenido</option>
-                                        <option value="Liberado" {{ $item->estado == 'Liberado' ? 'selected' : '' }}>Liberado</option>
-                                        <option value="En fiscalía" {{ $item->estado == 'En fiscalía' ? 'selected' : '' }}>En fiscalía</option>
-                                </select>
-                                    <label for="estado">Estado</label>
+                                <div class="mb-3 mt-4 row">
+                                    <label for="evidencias" class="form-label">Evidencias fotográficas</label>
+                                    <div class="col-md-12 mb-4">
+                                        <input class="form-control" type="file" id="evidencias" multiple>
+                                    </div>
+                                    <div class="col-md-4" style="pointer-events: none;">
+                                        <img src="{{ asset('recursos/assets/img/evidencia1.jpg') }}" class="img-thumbnail" alt="Evidencia 1">
+                                    </div>
+                                    <div class="col-md-4" style="pointer-events: none;">
+                                        <img src="{{ asset('recursos/assets/img/evidencia2.jpg') }}" class="img-thumbnail" alt="Evidencia 2">
+                                    </div>
+                                    <div class="col-md-4" style="pointer-events: none;">
+                                        <img src="{{ asset('recursos/assets/img/evidencia3.jpg') }}" class="img-thumbnail" alt="Evidencia 3">
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <label class="mb-2" for="bitacora">Bitácora</label>
-                                <textarea name="bitacora" id="bitacora" class="form-control" rows="4">{{ $item->bitacora }}</textarea>
-                            </div>
-
-                            <div class="col-md-12">
-                                <h5 class="card-title">Documentación que posee</h5>
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <input hidden name="documentos[docSeguro]" value="0">
-                                        <input class="form-check-input me-1" type="checkbox" name="documentos[docSeguro]" value="1" id="docSeguro" {{ !empty($item->documentos['docSeguro']) && $item->documentos['docSeguro'] ? 'checked' : '' }}>
-                                        Seguro médico
-                                    </li>
-                                    <li class="list-group-item">
-                                        <input hidden name="documentos[docCerMed]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="documentos[docCerMed]" value="1" id="docCerMed" {{ !empty($item->documentos['docCerMed']) && $item->documentos['docCerMed'] ? 'checked' : '' }}>
-                                        Certificado médico
-                                    </li>
-                                    <li class="list-group-item">
-                                        <input hidden name="documentos[docRCV]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="documentos[docRCV]" value="1" id="docRCV" {{ !empty($item->documentos['docRCV']) && $item->documentos['docRCV'] ? 'checked' : '' }}>
-                                        Responsabilidad civil del vehículo
-                                    </li>
-                                    <li class="list-group-item">
-                                        <input hidden name="documentos[docCerOri]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="documentos[docCerOri]" value="1" id="docCerOri" {{ !empty($item->documentos['docCerOri']) && $item->documentos['docCerOri'] ? 'checked' : '' }}>
-                                        Certificado de origen
-                                    </li>
-                                    <li class="list-group-item">
-                                        <input hidden name="documentos[docTitProp]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="documentos[docTitProp]" value="1" id="docTitProp" {{ !empty($item->documentos['docTitProp']) && $item->documentos['docTitProp'] ? 'checked' : '' }}>
-                                        Título de propiedad
-                                    </li>
-                                    <li class="list-group-item">
-                                        <input hidden name="documentos[docCarneCir]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="documentos[docCarneCir]" value="1" id="docCarneCir" {{ !empty($item->documentos['docCarneCir']) && $item->documentos['docCarneCir'] ? 'checked' : '' }}>
-                                        Carnet de circulación
-                                    </li>
-                                    <li class="list-group-item">
-                                        <input hidden name="documentos[docLicencia]" value="0">
-                                        <input class="form-check-input" type="checkbox" name="documentos[docLicencia]" value="1" id="docLicencia" {{ !empty($item->documentos['docLicencia']) && $item->documentos['docLicencia'] ? 'checked' : '' }}>
-                                        Licencia de conducir
-                                    </li>
-                                </ul>
-                            </div>
                             <hr>
                             
                             <div class="col-6">
-                                <button type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+                                <button style="pointer-events: none;" type="submit" class="btn btn-success mt-3"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
                                 <a href="{{ route('infracciones.index') }}" class="btn btn-secondary mt-3"><i class="fa-solid fa-rotate-left"></i> Cancelar</a>
                             </div>
                         </form>

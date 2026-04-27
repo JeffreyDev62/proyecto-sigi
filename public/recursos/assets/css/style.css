@@ -1230,3 +1230,24 @@ h6 {
   font-size: 13px;
   color: #012970;
 }
+
+/*--------------------------------------------------------------
+# Animación para las fases del formulario de infracciones
+--------------------------------------------------------------*/
+
+/* Definición de la animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        /* transform: translateY(20px); Empieza 20px abajo */
+    }
+    to {
+        opacity: 1;
+        /* transform: translateY(0); Termina en su posición original */
+    }
+}
+
+/* Clase que aplicaremos a las secciones */
+.fase-animada {
+    animation: fadeIn 0.5s ease-out forwards;
+}
