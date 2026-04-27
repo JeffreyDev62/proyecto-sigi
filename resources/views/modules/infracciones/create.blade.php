@@ -30,16 +30,16 @@
                         {{-- Fase 1 del formulario --}}
                             <section class="row g-3" id="fase1">
                                 <h4 style="margin-top: 2.5rem; color: #003772; font-weight: 600;">1. Datos del ciudadano</h4>
-
+                                <hr>
                                 <div class="col-md-12">
-                                    <div class="form-floating input-group">
-                                        <select name="nacionalidad" class="form-select" style="max-width:70px;">
+                                    <div class="input-group form-floating">
+                                        <select name="nacionalidad" class="input-group-text" style="max-width:70px;">
                                             <option value="#">V</option>
                                             <option value="#">E</option>
                                             <option value="#">J</option>
                                         </select>
                                         <input type="number" class="form-control" name="cedula" id="cedula" placeholder="Cédula de identidad" required oninput="if(this.value.length>8)this.value=this.value.slice(0,8)">
-                                        <label style="margin-left: 4.3rem" for="cedula">Cédula de identidad</label>
+                                        <label style="margin-left: 3.4rem" for="cedula">Cédula de identidad</label>
                                     </div>
                                 </div>
 
@@ -80,7 +80,7 @@
 
                             <section class="d-none row g-3" id="fase2">
                                 <h4 style="margin-top: 2.5rem; color: #003772; font-weight: 600;">2. Datos del vehículo</h4>
-
+                                <hr>
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" name="placa_vehiculo" id="placa_vehiculo" placeholder="Placa del vehículo" maxlength="9" required>
@@ -127,7 +127,7 @@
 
                             <section class="d-none row g-3" id="fase3">
                                 <h4 style="margin-top: 2.5rem; color: #003772; font-weight: 600;">3. Datos de la infracción</h4>
-
+                                <hr>
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <select class="form-select" name="tipo_infraccion" id="tipo_infraccion" required>
